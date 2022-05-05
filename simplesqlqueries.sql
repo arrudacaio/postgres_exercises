@@ -13,3 +13,15 @@ select fc.facid, fc.name, fc.membercost, fc.monthlymaintenance from cd.facilitie
 
 -- Q5 Basic string searches
 select fc.* from cd.facilities as fc where fc.name like '%Tennis%';
+
+-- Q6  Matching against multiple possible values 
+select fc.* from cd.facilities as fc where fc.facid in (1,5); 
+
+-- Q7  Classify results into buckets 
+select fac.name,
+		case when (fac.monthlymaintenance > 100) then
+			'expensive'
+		else
+		 	'cheap'
+		end as cost
+	from cd.facilities as fac;
