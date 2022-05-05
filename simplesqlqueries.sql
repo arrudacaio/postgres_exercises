@@ -28,3 +28,22 @@ select fac.name,
 
 -- Q8 Working with dates
 select memid, surname, firstname, joindate from cd.members where  joindate > '2012-09-01';
+
+-- Q9 Removing duplicates, and ordering results
+select distinct surname from cd.members order by surname limit 10;
+
+-- Q10 Combining results from multiples queries using UNION
+select name
+		from cd.facilities
+union
+select surname 
+	from cd.members;
+
+-- Q11 Simple aggregation
+select max(joindate) as latest 
+	from cd.members;
+
+-- Q12 More aggregation
+select firstname, surname, joindate 
+	from cd.members order by joindate desc limit 1;
+	
